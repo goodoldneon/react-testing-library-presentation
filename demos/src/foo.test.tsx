@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 
-import { render, fireEvent, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 test("text renders", () => {
@@ -9,14 +9,67 @@ test("text renders", () => {
   screen.getByText("Hello world");
 });
 
-test("click handler", () => {
+interface MyFormSubmitData {
+  firstName: string;
+  lastName: string;
+}
+
+interface MyFormProps {
+  onSubmit: (data: MyFormSubmitData) => void;
+}
+
+function MyForm({ onSubmit }: MyFormProps): JSX.Element {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+
+  return (
+    <form
+      onSubmit={(event) => {
+        event.preventDefault();
+        onSubmit({ firstName, lastName });
+      }}
+    >
+      <label>
+        First Name
+        <input
+          onChange={(e) => setFirstName(e.target.value)}
+          value={firstName}
+        />
+      </label>
+
+      <label>
+        Last Name
+        <input onChange={(e) => setLastName(e.target.value)} value={lastName} />
+      </label>
+
+      <input type="submit" value="Submit" />
+    </form>
+  );
+}
+
+test("form submission", async () => {
+  const onSubmit = jest.fn();
+
+  render(<MyForm onSubmit={onSubmit} />);
+
+  await userEvent.click(screen.getByLabelText("First Name"));
+  await userEvent.keyboard("Sofia");
+  await userEvent.keyboard("{tab}");
+  await userEvent.keyboard("Lamb");
+  await userEvent.click(screen.getByText("Submit"));
+
+  expect(onSubmit).toBeCalledWith({
+    firstName: "Sofia",
+    lastName: "Lamb",
+  });
+});
+
+test("click handler", async () => {
   const spy = jest.fn();
 
   render(<button onClick={spy}>Accept</button>);
 
-  const acceptButton = screen.getByText("Accept");
-
-  fireEvent.click(acceptButton);
+  await userEvent.click(screen.getByText("Accept"));
 
   expect(spy).toBeCalled();
 });

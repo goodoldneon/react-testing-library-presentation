@@ -59,7 +59,7 @@ drawings:
 <h3>Encourage <span class="font-bold text-cyan-100">best practices</span></h3>
 
 <p>
-  ✅ Accessibility-friendly (e.g. screen readers can understand the labels)
+  ✅ Good accessibility
 
 ```html
 <form>
@@ -80,7 +80,7 @@ drawings:
 </p>
 
 <p>
-  ❌ Accessibility-unfriendly (e.g. screen readers can't understand the labels)
+  ❌ Bad accessibility
 
 ```html
 <form>
@@ -97,11 +97,15 @@ drawings:
 
 <h3>Read like <span class="font-bold text-cyan-100">documentation</span></h3>
 
-<ul>
-  <li>Easy onboarding</li>
-  <li>Easy PR reviews</li>
-  <li>Easy maintenance</li>
-</ul>
+<p>
+
+Hide implementation details (a.k.a. "black-box testing")
+
+- Easier onboarding
+- Easier PR reviews
+- Easier maintenance
+
+</p>
 
 ---
 
@@ -112,3 +116,41 @@ drawings:
 <ul>
   <li>Part of the development loop</li>
 </ul>
+
+---
+
+# Example
+
+<p></p>
+
+<p class="flex">
+  <div class="flex-1">
+    <img class="my-1" src="/MyForm.png" />
+  </div>
+
+  <div class="flex-1">
+
+```ts {all|1|2-5|6-11|13-17}
+test("form submission", async () => {
+  // Setup
+  const onSubmit = jest.fn();
+  render(<MyForm onSubmit={onSubmit} />);
+
+  // User interacts with the page
+  await userEvent.click(screen.getByLabelText("First Name"));
+  await userEvent.keyboard("Sofia");
+  await userEvent.keyboard("{tab}");
+  await userEvent.keyboard("Lamb");
+  await userEvent.click(screen.getByText("Submit"));
+
+  // Ensure that `onSubmit` callback received the correct data
+  expect(onSubmit).toBeCalledWith({
+    firstName: "Sofia",
+    lastName: "Lamb",
+  });
+});
+```
+
+  </div>
+
+</p>
