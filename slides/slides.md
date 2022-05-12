@@ -84,7 +84,7 @@ drawings:
 
 ```html
 <form>
-  <span>Name</span>
+  <span>Age</span>
   <input />
 </form>
 ```
@@ -121,7 +121,7 @@ Hide implementation details (a.k.a. "black-box testing")
 
 # Example
 
-<p></p>
+<p class="py-4"></p>
 
 <p class="flex">
   <div class="flex-1">
@@ -156,24 +156,155 @@ test("form submission", async () => {
 
 ---
 
+<h1>Asynchronous logic</h1>
+
+<p class="py-4"></p>
+
+<p class="flex">
+  <div class="flex-1 text-center">
+    <img class="mx-auto" src="/user-status-loading.png" style="height:64px" />
+    <div class="m-4 text-5xl">⏳</div>
+    <img class="mx-auto" src="/user-status-active.png" style="height:64px" />
+  </div>
+
+  <div class="flex-1">
+    <ol>
+      <li>Show "Loading..."</li>
+      <li>Fetch user status from server</li>
+      <li>Display user status</li>
+    </ol>
+  </div>
+</p>
+
+---
+
+<h1>Asynchronous logic</h1>
+
+<p class="py-4"></p>
+
+<p class="flex">
+  <div class="flex-1 text-center">
+    <img class="mx-auto" src="/user-status-loading.png" style="height:64px" />
+    <div class="m-4 text-5xl">⏳</div>
+    <img class="mx-auto" src="/user-status-active.png" style="height:64px" />
+  </div>
+
+  <div class="flex-1">
+
+```tsx {all|2-3|5-6|8-9}
+test("fetch user status", async () => {
+  // Setup
+  render(<UserBadge />);
+
+  // Loading placeholder immediately appears
+  screen.getByText("Loading...");
+
+  // Wait for text to appear
+  await screen.findByText("Active");
+});
+```
+
+  </div>
+</p>
+
+---
+
+<h1>Queries</h1>
+
+<p class="py-4"></p>
+
+<table>
+  <tr class="font-bold">
+    <td>Type of Query</td>
+    <td>0 Matches</td>
+    <td>1 Match</td>
+    <td>>1 Matches</td>
+    <td>Async</td>
+  </tr>
+  <tr>
+    <td class="italic text-center" colspan="5">Single Element</td>
+  </tr>
+  <tr>
+    <td><code>getBy...</code></td>
+    <td class="text-red-500">Error</td>
+    <td>✅</td>
+    <td class="text-red-500">Error</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <td><code>queryBy...</code></td>
+    <td>✅</td>
+    <td>✅</td>
+    <td class="text-red-500">Error</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <td><code>findBy...</code></td>
+    <td class="text-red-500">Error</td>
+    <td>✅</td>
+    <td class="text-red-500">Error</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td class="italic text-center" colspan="5">Multiple Elements</td>
+  </tr>
+  <tr>
+    <td><code>getAllBy...</code></td>
+    <td class="text-red-500">Error</td>
+    <td>✅</td>
+    <td>✅</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <td><code>queryAllBy...</code></td>
+    <td>✅</td>
+    <td>✅</td>
+    <td>✅</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <td><code>findAllBy...</code></td>
+    <td class="text-red-500">Error</td>
+    <td>✅</td>
+    <td>✅</td>
+    <td>Yes</td>
+  </tr>
+</table>
+
+---
+
+<h1>Queries</h1>
+
+<p class="py-4"></p>
+
 <p class="flex">
   <div class="flex-1">
+    <li><code>getBy...</code></li>
+    <li><code>queryBy...</code></li>
+    <li><code>findBy...</code></li>
+    <li><code>getAllBy...</code></li>
+    <li><code>queryManyBy...</code></li>
+    <li><code>findManyBy...</code></li>
+  </div>
 
-# Queries
-
-- `getByAltText`
-- `getByDisplayValue`
-- `getByLabelText`
-- `getByPlaceHolderText`
-- `getByRole`
-- `getByText`
-- `getByTitle`
-
-</div>
+  <div class="flex-1 text-10xl text-center">+</div>
 
   <div class="flex-1">
+    <li><code>...AltText</code></li>
+    <li><code>...DisplayValue</code></li>
+    <li><code>...LabelText</code></li>
+    <li><code>...PlaceHolderText</code></li>
+    <li><code>...Role</code></li>
+    <li><code>...Text</code></li>
+    <li><code>...Title</code></li>
+  </div>
+</p>
 
-# User Events
+---
+
+<h1>Events</h1>
+
+<p class="py-4"></p>
 
 - Keyboard
 - Mouse
@@ -186,52 +317,3 @@ test("form submission", async () => {
   - Copy
   - Paste
 - Upload
-
-</div>
-</p>
-
----
-
-<h1>Asynchronous logic</h1>
-
-<p></p>
-
-<p class="flex">
-  <div class="flex-1">
-
-```tsx
-function UserBadge(): JSX.Element {
-  const [userStatus, setUserStatus] = useState("");
-
-  fetchUserStatus().then(setUserStatus);
-
-  if (!userStatus) {
-    return <div>Loading...</div>;
-  }
-
-  return <div>{userStatus}</div>;
-}
-
-test("fetch user status", async () => {
-  // Setup
-  render(<UserBadge />);
-
-  // Wait for text to appear
-  await screen.findByText("Active");
-});
-```
-
-  </div>
-
-  <div class="flex-1 px-4">
-    <ul>
-      <li><code>findByAltText</code></li>
-      <li><code>findByDisplayValue</code></li>
-      <li><code>findByLabelText</code></li>
-      <li><code>findByPlaceHolderText</code></li>
-      <li><code>findByRole</code></li>
-      <li><code>findByText</code></li>
-      <li><code>findByTitle</code></li>
-    </ul>
-  </div>
-</p>

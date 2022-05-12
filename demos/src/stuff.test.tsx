@@ -10,16 +10,18 @@ test("text renders", () => {
 });
 
 test("form submission", async () => {
+  // Setup
   const onSubmit = jest.fn();
-
   render(<MyForm onSubmit={onSubmit} />);
 
+  // User interacts with the page
   await userEvent.click(screen.getByLabelText("First Name"));
   await userEvent.keyboard("Sofia");
   await userEvent.tab();
   await userEvent.keyboard("Lamb");
   await userEvent.click(screen.getByText("Submit"));
 
+  // Ensure that `onSubmit` callback received the correct data
   expect(onSubmit).toBeCalledWith({
     firstName: "Sofia",
     lastName: "Lamb",
@@ -81,8 +83,13 @@ test("checkbox", async () => {
 });
 
 test("fetch user status", async () => {
+  // Setup
   render(<UserBadge />);
 
+  // Loading placeholder immediately appears
+  screen.getByText("Loading...");
+
+  // Wait for text to appear
   await screen.findByText("Active");
 });
 
@@ -143,12 +150,6 @@ function MyForm({ onSubmit }: MyFormProps): JSX.Element {
   );
 }
 
-async function fetchUserStatus(): Promise<string> {
-  await sleep(200);
-
-  return "Active";
-}
-
 function UserBadge(): JSX.Element {
   const [userStatus, setUserStatus] = useState("");
 
@@ -159,6 +160,12 @@ function UserBadge(): JSX.Element {
   }
 
   return <div>{userStatus}</div>;
+}
+
+async function fetchUserStatus(): Promise<string> {
+  await sleep(200);
+
+  return "Active";
 }
 
 async function sleep(ms: number): Promise<void> {
