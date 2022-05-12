@@ -36,7 +36,7 @@ drawings:
 
 # Tests should...
 
-<h3>Mimic what the user <span class="font-bold text-cyan-100">experiences</span></h3>
+<h3>Mimic what the user <span class="font-bold text-cyan-100">experiences 👀</span></h3>
 
 <p class="py-4">
   <h4 class="italic">"How do my users identify this <code>input</code>?"</h4>
@@ -56,7 +56,7 @@ drawings:
 
 # Tests should...
 
-<h3>Encourage <span class="font-bold text-cyan-100">best practices</span></h3>
+<h3>Encourage <span class="font-bold text-cyan-100">best practices 👷🏼‍♀️</span></h3>
 
 <p>
   ✅ Good accessibility
@@ -95,7 +95,7 @@ drawings:
 
 # Tests should...
 
-<h3>Read like <span class="font-bold text-cyan-100">documentation</span></h3>
+<h3>Read like <span class="font-bold text-cyan-100">documentation 📑</span></h3>
 
 <p>
 
@@ -111,7 +111,7 @@ Hide implementation details (a.k.a. "black-box testing")
 
 # Tests should...
 
-<h3>Run <span class="font-bold text-cyan-100">quickly</span></h3>
+<h3>Run <span class="font-bold text-cyan-100">quickly 🏃🏽‍♂️</span></h3>
 
 <p>
   <img class="mx-auto" src="/test-watch.gif" />
@@ -302,18 +302,31 @@ test("fetch user status", async () => {
 
 ---
 
-<h1>Events</h1>
+<h1>User Events</h1>
 
 <p class="py-4"></p>
 
-- Keyboard
-- Mouse
+- Keyboard ⌨
+- Mouse 🖱
   - Click specific button (e.g. "mouse right")
   - Double-click
   - Move
   - Hover
-- Clipboard
+- Clipboard 📋
   - Cut
   - Copy
   - Paste
-- Upload
+- Upload 📁
+
+---
+
+<h1>The End</h1>
+
+<p></p>
+
+<div class="my-32 text-5xl text-center">
+  Questions?
+
+  🙋🏾‍♀️🙋🏻🙋🏽‍♂️
+
+</div>
