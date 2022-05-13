@@ -1,24 +1,5 @@
 ---
-# try also 'default' to start simple
-theme: default
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
-# background: https://source.unsplash.com/collection/94734566/1920x1080
-# apply any windi css classes to the current slide
 class: "text-center"
-# https://sli.dev/custom/highlighters.html
-highlighter: shiki
-# show line numbers in code blocks
-lineNumbers: false
-# some information about the slides, markdown enabled
-info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
-# persist drawings in exports and build
-drawings:
-  persist: false
 ---
 
 # React Testing Library
@@ -169,11 +150,10 @@ Hide implementation details (a.k.a. "black-box testing")
 
   <div class="flex-1">
 
-```ts {all|1|2-5|6-11|13-17}
+```ts {all|1|2-4|5-10|12-13}
 test("form submission", async () => {
   // Setup
-  const onSubmit = jest.fn();
-  render(<MyForm onSubmit={onSubmit} />);
+  render(<MyForm />);
 
   // User interacts with the page
   await userEvent.click(screen.getByLabelText("First Name"));
@@ -182,11 +162,8 @@ test("form submission", async () => {
   await userEvent.keyboard("Lamb");
   await userEvent.click(screen.getByText("Submit"));
 
-  // Ensure that `onSubmit` callback received the correct data
-  expect(onSubmit).toBeCalledWith({
-    firstName: "Sofia",
-    lastName: "Lamb",
-  });
+  // Ensure that the correct greeting appears
+  screen.getByText("Hello Sofia Lamb!");
 });
 ```
 
@@ -367,34 +344,39 @@ test("fetch user status", async () => {
 <div class="flex flex-wrap text-center">
   <div class="flex-1">
     <label>
-      <img class="mx-auto my-4" src="/cypress-logo.png" style="height: 100px" />
-      Cypress
-    </label>
-  </div>
-  <div class="flex-1">
-    <label>
       <img class="mx-auto my-4" src="/puppeteer-logo.png" style="height: 100px" />
       Puppeteer
     </label>
   </div>
+
   <div class="flex-1">
     <label>
       <img class="mx-auto my-4" src="/playwright-logo.png" style="height: 100px" />
       Playwright
     </label>
   </div>
+
+  <div class="flex-1">
+    <label>
+      <img class="mx-auto my-4" src="/cypress-logo.png" style="height: 100px" />
+      Cypress
+    </label>
+  </div>
+
   <div class="flex-1">
     <label>
       <img class="mx-auto my-4" src="/nightwatch-logo.png" style="height: 100px" />
       Nightwatch
     </label>
   </div>
+
   <div class="flex-1">
     <label>
       <img class="mx-auto my-4" src="/testcafe-logo.png" style="height: 100px" />
       TestCafe
     </label>
   </div>
+
   <div class="flex-1">
     <label>
       <img class="mx-auto my-4" src="/webdriverio-logo.png" style="height: 100px" />
@@ -402,6 +384,17 @@ test("fetch user status", async () => {
     </label>
   </div>
 </div>
+
+
+---
+class: "flex flex-col items-center"
+---
+
+<div class="flex-1"></div>
+
+<h1>End-to-end testing demo</h1>
+
+<div class="flex-1 text-8xl">👨🏻‍💻</div>
 
 ---
 
