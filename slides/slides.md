@@ -34,6 +34,45 @@ drawings:
 
 ---
 
+# More than just React
+
+<p class="py-4"></p>
+
+<div class="flex flex-wrap text-center">
+  <div class="flex-1">
+    <label>
+      <img class="mx-auto my-4" src="/react-logo.png" style="height: 100px" />
+      React
+    </label>
+  </div>
+  <div class="flex-1">
+    <label>
+      <img class="mx-auto my-4" src="/vue-logo.png" style="height: 100px" />
+      Vue
+    </label>
+  </div>
+  <div class="flex-1">
+    <label>
+      <img class="mx-auto my-4" src="/angular-logo.png" style="height: 100px" />
+      Angular
+    </label>
+  </div>
+  <div class="flex-1">
+    <label>
+      <img class="mx-auto my-4" src="/preact-logo.png" style="height: 100px" />
+      Preact
+    </label>
+  </div>
+  <div class="flex-1">
+    <label>
+      <img class="mx-auto my-4" src="/svelte-logo.png" style="height: 100px" />
+      Svelte
+    </label>
+  </div>
+</div>
+
+---
+
 # Tests should...
 
 <h3>Mimic what the user <span class="font-bold text-cyan-100">experiences 👀</span></h3>
@@ -318,6 +357,52 @@ test("fetch user status", async () => {
   - Paste
 - Upload 📁
 
+
+---
+
+# End-to-end testing
+
+<p class="py-4"></p>
+
+<div class="flex flex-wrap text-center">
+  <div class="flex-1">
+    <label>
+      <img class="mx-auto my-4" src="/cypress-logo.png" style="height: 100px" />
+      Cypress
+    </label>
+  </div>
+  <div class="flex-1">
+    <label>
+      <img class="mx-auto my-4" src="/puppeteer-logo.png" style="height: 100px" />
+      Puppeteer
+    </label>
+  </div>
+  <div class="flex-1">
+    <label>
+      <img class="mx-auto my-4" src="/playwright-logo.png" style="height: 100px" />
+      Playwright
+    </label>
+  </div>
+  <div class="flex-1">
+    <label>
+      <img class="mx-auto my-4" src="/nightwatch-logo.png" style="height: 100px" />
+      Nightwatch
+    </label>
+  </div>
+  <div class="flex-1">
+    <label>
+      <img class="mx-auto my-4" src="/testcafe-logo.png" style="height: 100px" />
+      TestCafe
+    </label>
+  </div>
+  <div class="flex-1">
+    <label>
+      <img class="mx-auto my-4" src="/webdriverio-logo.png" style="height: 100px" />
+      WebdriverIO
+    </label>
+  </div>
+</div>
+
 ---
 
 <h1>The End</h1>
@@ -327,6 +412,6 @@ test("fetch user status", async () => {
 <div class="my-32 text-5xl text-center">
   Questions?
 
-  🙋🏾‍♀️🙋🏻🙋🏽‍♂️
+🙋🏾‍♀️🙋🏻🙋🏽‍♂️
 
 </div>
