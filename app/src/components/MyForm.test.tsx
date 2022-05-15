@@ -7,12 +7,12 @@ test("form submission", async () => {
   render(<MyForm />);
 
   // User interacts with the page
-  const firstNameInput = screen.getByLabelText("First Name")
+  const firstNameInput = screen.getByLabelText("First Name");
   await userEvent.click(firstNameInput);
   await userEvent.keyboard("Gordon");
   await userEvent.tab();
   await userEvent.keyboard("Freeman");
-  const submitButton = screen.getByText("Submit")
+  const submitButton = screen.getByText("Submit");
   await userEvent.click(submitButton);
 
   // Ensure that the correct greeting appears

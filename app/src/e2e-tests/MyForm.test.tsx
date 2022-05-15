@@ -21,12 +21,12 @@ test("form submission", async () => {
   const document = await page.getDocument();
 
   // User interacts with the page
-  const firstNameInput = await document.getByLabelText("First Name")
+  const firstNameInput = await document.getByLabelText("First Name");
   await firstNameInput.click();
   await page.keyboard.type("Gordon");
   await page.keyboard.press("Tab");
   await page.keyboard.type("Freeman");
-  const submitButton = await document.getByText("Submit")
+  const submitButton = await document.getByText("Submit");
   await submitButton.click();
 
   // Ensure that the correct greeting appears
