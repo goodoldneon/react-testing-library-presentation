@@ -2,7 +2,7 @@
 class: "text-center"
 ---
 
-# React Testing Library
+# Testing Library
 
 <div class="text-cyan-100">Testing from a user's perspective</div>
 

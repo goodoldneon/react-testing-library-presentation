@@ -14,7 +14,7 @@ afterAll(async () => {
   await browser.close();
 });
 
-test("test example.com", async () => {
+test("form submission", async () => {
   // Setup
   const page = await browser.newPage();
   await page.goto("http://localhost:3000");
