@@ -15,7 +15,7 @@ class: "text-center"
 
 ---
 
-# More than just React
+# Supported frameworks
 
 <p class="py-4"></p>
 
@@ -59,10 +59,10 @@ class: "text-center"
 <h3>Mimic what the user <span class="font-bold text-cyan-100">experiences 👀</span></h3>
 
 <p class="py-4">
-  <h4 class="italic">"How do my users identify this <code>input</code>?"</h4>
+  <h4 class="italic">"How do my users identify know where to enter their first name?"</h4>
 
-  <div>✅ Find the <code>input</code> labeled 'Age'</div>
-  <div>❌ Find the element with the attribute <code>id="age"</code></div>
+  <div>✅ Find the <code>input</code> labeled 'First Name'</div>
+  <div>❌ Find the element with the attribute <code>id="first-name"</code></div>
 </p>
 
 <p class="py-4">
@@ -84,7 +84,7 @@ class: "text-center"
 ```html
 <form>
   <label>
-    Age
+    First Name
     <input />
   </label>
 </form>
@@ -92,8 +92,8 @@ class: "text-center"
 
 ```html
 <form>
-  <label for="age">Age</label>
-  <input name="age" />
+  <label for="first-name">First Name</label>
+  <input name="first-name" />
 </form>
 ```
 
@@ -104,7 +104,7 @@ class: "text-center"
 
 ```html
 <form>
-  <span>Age</span>
+  <span>First Name</span>
   <input />
 </form>
 ```
@@ -145,25 +145,27 @@ Hide implementation details (a.k.a. "black-box testing")
 
 <p class="flex">
   <div class="flex-1">
-    <img class="my-1" src="/MyForm.png" />
+    <img class="my-1" src="/form.gif" />
   </div>
 
   <div class="flex-1">
 
-```ts {all|1|2-4|5-10|12-13}
+```ts {all|1|2-4|5-12|14-15}
 test("form submission", async () => {
   // Setup
   render(<MyForm />);
 
   // User interacts with the page
-  await userEvent.click(screen.getByLabelText("First Name"));
-  await userEvent.keyboard("Sofia");
+  const firstNameInput = screen.getByLabelText("First Name");
+  await userEvent.click(firstNameInput);
+  await userEvent.keyboard("Gordon");
   await userEvent.tab();
-  await userEvent.keyboard("Lamb");
-  await userEvent.click(screen.getByText("Submit"));
+  await userEvent.keyboard("Freeman");
+  const submitButton = screen.getByText("Submit");
+  await userEvent.click(submitButton);
 
   // Ensure that the correct greeting appears
-  screen.getByText("Hello Sofia Lamb!");
+  screen.getByText("Hello Gordon Freeman!");
 });
 ```
 
@@ -248,18 +250,18 @@ test("fetch user status", async () => {
     <td>No</td>
   </tr>
   <tr>
-    <td><code>queryBy...</code></td>
-    <td>✅</td>
-    <td>✅</td>
-    <td class="text-red-500">Error</td>
-    <td>No</td>
-  </tr>
-  <tr>
     <td><code>findBy...</code></td>
     <td class="text-red-500">Error</td>
     <td>✅</td>
     <td class="text-red-500">Error</td>
     <td>Yes</td>
+  </tr>
+  <tr>
+    <td><code>queryBy...</code></td>
+    <td>✅</td>
+    <td>✅</td>
+    <td class="text-red-500">Error</td>
+    <td>No</td>
   </tr>
   <tr>
     <td class="italic text-center" colspan="5">Multiple Elements</td>
@@ -272,18 +274,18 @@ test("fetch user status", async () => {
     <td>No</td>
   </tr>
   <tr>
-    <td><code>queryAllBy...</code></td>
-    <td>✅</td>
-    <td>✅</td>
-    <td>✅</td>
-    <td>No</td>
-  </tr>
-  <tr>
     <td><code>findAllBy...</code></td>
     <td class="text-red-500">Error</td>
     <td>✅</td>
     <td>✅</td>
     <td>Yes</td>
+  </tr>
+  <tr>
+    <td><code>queryAllBy...</code></td>
+    <td>✅</td>
+    <td>✅</td>
+    <td>✅</td>
+    <td>No</td>
   </tr>
 </table>
 
@@ -334,6 +336,14 @@ test("fetch user status", async () => {
   - Paste
 - Upload 📁
 
+---
+
+# End-to-end testing?
+
+<p class="py-4"></p>
+
+<h2 class="mb-4">✅ Unit testing (simulated browser)</h2>
+<h2>🤔 End-to-end testing (real browser)</h2>
 
 ---
 
@@ -385,16 +395,15 @@ test("fetch user status", async () => {
   </div>
 </div>
 
-
----
-class: "flex flex-col items-center"
 ---
 
-<div class="flex-1"></div>
+<div class="flex flex-col items-center" style="height: 100%">
+  <div class="flex-1"></div>
 
-<h1>End-to-end testing demo</h1>
+  <h1>End-to-end testing demo</h1>
 
-<div class="flex-1 text-8xl">👨🏻‍💻</div>
+  <div class="flex-1 text-8xl">👨🏻‍💻</div>
+</div>
 
 ---
 
