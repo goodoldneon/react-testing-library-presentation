@@ -54,12 +54,41 @@ class: "text-center"
 
 ---
 
+# Does not replace...
+
+<p class="py-4"></p>
+
+- Test runner 🏃🏼‍♀️
+  - Jest, Mocha, etc.
+- Assertion library 👁
+  - Jest, Chai, etc.
+- Spy/stub library 🕵🏽
+  - Jest, Sinon, etc.
+- Simulated browser 🤖
+  - Jsdom
+- End-to-end framework 🌎
+  - Cypress, Puppeteer, Selenium, etc.
+
+---
+
+# What does Testing Library do?
+
+<p class="py-4"></p>
+
+- Render components into the DOM
+- Interact with the DOM
+  - Type, click, etc.
+- Query the DOM
+  - "Get the value in the input labeled 'First Name'"
+
+---
+
 # Tests should...
 
 <h3>Mimic what the user <span class="font-bold text-cyan-100">experiences 👀</span></h3>
 
 <p class="py-4">
-  <h4 class="italic">"How do my users identify know where to enter their first name?"</h4>
+  <h4 class="italic">"How do my users know where to enter their first name?"</h4>
 
   <div>✅ Find the <code>input</code> labeled 'First Name'</div>
   <div>❌ Find the element with the attribute <code>id="first-name"</code></div>
