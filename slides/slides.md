@@ -71,15 +71,23 @@ class: "text-center"
 
 ---
 
-# What does Testing Library do?
+<h1> What does Testing Library do?</h1>
 
 <p class="py-4"></p>
 
-- Render components into the DOM
-- Interact with the DOM
-  - Type, click, etc.
-- Query the DOM
-  - "Get the value in the input labeled 'First Name'"
+<p>Tests' relationship with the simulated browser</p>
+
+<p class="flex gap-4 items-center">
+  <div class="flex-1 text-3xl text-right">
+    <div class="my-8">Render ➡️</div>
+    <div class="my-8">Events ➡️</div>
+    <div class="my-8">Query ⬅️</div>
+  </div>
+
+  <div class="flex-1">
+    <img src="/browser.png"/>
+  </div>
+</p>
 
 ---
 
@@ -330,8 +338,8 @@ test("fetch user status", async () => {
     <li><code>queryBy...</code></li>
     <li><code>findBy...</code></li>
     <li><code>getAllBy...</code></li>
-    <li><code>queryManyBy...</code></li>
-    <li><code>findManyBy...</code></li>
+    <li><code>queryAllBy...</code></li>
+    <li><code>findAllBy...</code></li>
   </div>
 
   <div class="flex-1 text-10xl text-center">+</div>
@@ -371,8 +379,16 @@ test("fetch user status", async () => {
 
 <p class="py-4"></p>
 
-<h2 class="mb-4">✅ Unit testing (simulated browser)</h2>
-<h2>🤔 End-to-end testing (real browser)</h2>
+<p class="flex gap-4 items-center">
+  <div class="flex-1 text-2xl">
+    <div>✅ Unit testing (simulated browser)</div>
+    <div>🤔 End-to-end testing (real browser)</div>
+  </div>
+
+  <div class="flex-1">
+    <img src="/test-pyramid.png"/>
+  </div>
+</p>
 
 ---
 
