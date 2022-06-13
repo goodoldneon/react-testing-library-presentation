@@ -442,6 +442,24 @@ test("fetch user status", async () => {
 
 ---
 
+<h1>End-to-end testing</h1>
+
+<p class="py-4"></p>
+
+<p class="flex gap-4 items-center">
+  <div class="flex-1 text-3xl text-right">
+    <div class="my-8">Render️ ❌</div>
+    <div class="my-8">Events ❌</div>
+    <div class="my-8">Query ⬅️</div>
+  </div>
+
+  <div class="flex-1">
+    <img src="/browser.png"/>
+  </div>
+</p>
+
+---
+
 <div class="flex flex-col items-center" style="height: 100%">
   <div class="flex-1"></div>
 

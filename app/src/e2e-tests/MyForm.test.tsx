@@ -5,7 +5,7 @@ let browser: puppeteer.Browser;
 
 beforeAll(async () => {
   browser = await puppeteer.launch({
-    headless: true,
+    // headless: false,
     // slowMo: 30,
   });
 });
